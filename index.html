@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#b47e67">
+    <meta name="description" content="Bước vào khuôn viên 3D của Đại học Công nghiệp Hà Nội, dạo quanh sân trường và cùng Minh mở lòng với một tình yêu mới.">
+    <title>NGƯỜI ĐI QUA MÙA NHỚ — Một chiều ở HaUI</title>
+    <script type="module" crossorigin src="/hanuigame/assets/index-B06cu39K.js"></script>
+    <link rel="stylesheet" crossorigin href="/hanuigame/assets/index-BOR96Zlw.css">
+  </head>
+  <body>
+    <main class="game" id="game">
+      <div class="world" id="world" aria-label="Khuôn viên 3D của Đại học Công nghiệp Hà Nội lúc hoàng hôn, điều khiển bằng WASD hoặc phím mũi tên">
+        <div class="world-vignette" aria-hidden="true"></div>
+        <div class="loading" id="loading" role="status">ĐANG TẠO KHUÔN VIÊN <span></span></div>
+        <div class="scene-error" id="scene-error" role="alert" hidden></div>
+      </div>
+
+      <header class="topbar">
+        <a class="brand" href="#game" aria-label="Người đi qua mùa nhớ">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span><span class="brand-name">NGƯỜI ĐI QUA MÙA NHỚ</span><span class="brand-sub">MỘT CHIỀU Ở HAUI</span></span>
+        </a>
+        <div class="top-center"><span class="live-dot"></span><span id="location-label">KHUÔN VIÊN HAUI · 17:30</span></div>
+        <button class="icon-button" id="view-button" type="button" aria-label="Ẩn giao diện" title="Ẩn giao diện">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12s3.2-6 9-6 9 6 9 6-3.2 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></svg>
+        </button>
+      </header>
+
+      <section class="intro hud-layer" aria-labelledby="main-title">
+        <p class="eyebrow"><span>CHƯƠNG 01</span><i></i> MỘT CHIỀU TAN HỌC</p>
+        <h1 id="main-title">Ngày mình<br>đi qua <em>sân cũ.</em></h1>
+        <p class="intro-copy">Minh trở lại khuôn viên HaUI sau nhiều năm. Giữa hàng cây và lối đi quen, anh hy vọng có thể bắt đầu một câu chuyện mới — dù vẫn chưa quên người cũ.</p>
+        <button class="start-button" id="start-button" type="button">
+          <span class="play-icon" aria-hidden="true">▶</span>
+          <span><strong>VÀO SÂN TRƯỜNG</strong><small>WASD / PHÍM MŨI TÊN ĐỂ DI CHUYỂN</small></span>
+          <span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+      </section>
+
+      <aside class="quest hud-layer" aria-label="Nhiệm vụ">
+        <div class="quest-top"><span class="quest-icon" aria-hidden="true">✦</span><span>NHIỆM VỤ CHIỀU NAY</span><span class="quest-chapter">01 / 03</span></div>
+        <h2 id="quest-title">Dạo quanh sân trường</h2>
+        <p id="quest-copy">Tìm lại những nơi hai người từng đi qua. Một người mới có thể đang đợi phía trước.</p>
+        <div class="progress-track" role="progressbar" aria-label="Tiến trình hành trình" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="quest-progress">
+          <span id="progress-fill"></span>
+        </div>
+        <div class="quest-bottom"><span>HÀNH TRÌNH</span><strong id="progress-label">0%</strong></div>
+        <div class="quest-hint"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span> <span>DI CHUYỂN</span></div>
+      </aside>
+
+      <div class="story-card hud-layer" id="story-card" aria-live="polite">
+        <span class="story-mark" aria-hidden="true">“</span>
+        <p id="story-line">“Bao năm rồi mà hàng cây này vẫn vậy. Chỉ có người từng đi cùng anh là không còn ở đây.”</p>
+        <span class="story-caption">LỜI TỰ SỰ · MINH</span>
+      </div>
+
+      <div class="touch-controls hud-layer" aria-label="Điều khiển nhân vật">
+        <div class="d-pad">
+          <button class="move-button move-up" type="button" data-move="forward" aria-label="Đi về phía trước">↑</button>
+          <button class="move-button move-left" type="button" data-move="left" aria-label="Đi sang trái">←</button>
+          <button class="move-button move-down" type="button" data-move="back" aria-label="Đi lùi">↓</button>
+          <button class="move-button move-right" type="button" data-move="right" aria-label="Đi sang phải">→</button>
+        </div>
+        <span class="touch-label">CHẠM ĐỂ DI CHUYỂN</span>
+      </div>
+
+      <div class="bottom-bar hud-layer">
+        <div class="controls-hint"><span class="mouse-icon" aria-hidden="true">⌖</span><span>KÉO CHUỘT ĐỂ XOAY CAMERA</span><span class="hint-divider"></span><span class="keycap">SHIFT</span><span>CHẠY</span></div>
+        <button class="story-button" id="memory-button" type="button"><span aria-hidden="true">◇</span> MỞ KỶ NIỆM</button>
+      </div>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      <div class="crosshair" aria-hidden="true"><span></span></div>
+    </main>
+  </body>
+</html>
